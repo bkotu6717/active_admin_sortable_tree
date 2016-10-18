@@ -1,6 +1,8 @@
 ActiveAdmin.register Page do
 
-
+  action_item only: :index do
+    link_to 'Clear Cache', clear_cache_admin_pages_path, method: :post, remote: true, class: 'clear_cache', data: {confirm: 'Are you sure to clear the cache?'}
+  end
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -31,5 +33,23 @@ ActiveAdmin.register Page do
     label :title # item content
         actions
   end
+  
+  collection_action :clear_cache, method: :post do
+  end
 
+  controller do
+    before_filter :authenticate_admin_user!
+    def clear_cache
+      begin
+        @response = ''
+        @response = 'Bad this is !!'
+        raise "Exeception!!"
+      rescue Exception => e
+        @response = e.message
+      end
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
 end
