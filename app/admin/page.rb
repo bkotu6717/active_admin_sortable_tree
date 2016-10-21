@@ -33,8 +33,16 @@ ActiveAdmin.register Page do
     label :title # item content
         actions
   end
+  sidebar :versionate, :partial => "layouts/version", :only => :show
+
   
   collection_action :clear_cache, method: :post do
+  end
+
+  member_action :history do
+    @page = Page.find(params[:id])
+    @versions = @page.versions
+    render "layouts/history"
   end
 
   controller do
@@ -50,6 +58,12 @@ ActiveAdmin.register Page do
       respond_to do |format|
         format.js
       end
+    end
+    def show
+      @page = Page.includes(versions: :item).find(params[:id])
+      @versions = @page.versions 
+      @page = @page.versions[params[:version].to_i].reify if params[:version]
+      show! #it seems to need this
     end
   end
 end
