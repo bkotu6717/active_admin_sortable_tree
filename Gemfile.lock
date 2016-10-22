@@ -27,6 +27,7 @@ GEM
     active_admin_csv_import (2.0.0)
       rails (>= 4.0)
     active_admin_importable (1.1.2)
+    active_admin_theme (1.0.3)
     activeadmin (1.0.0.pre1)
       arbre (~> 1.0, >= 1.0.2)
       bourbon
@@ -222,6 +223,7 @@ DEPENDENCIES
   active_admin-sortable_tree
   active_admin_csv_import
   active_admin_importable
+  active_admin_theme
   activeadmin (~> 1.0.0.pre1)
   ancestry
   byebug

@@ -51,6 +51,8 @@ gem 'active_admin-sortable_tree'
 gem 'active_admin_importable'
 # Good gem for csv import with ajax
 gem 'active_admin_csv_import'
+# Theme
+gem 'active_admin_theme'
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
