@@ -1,4 +1,6 @@
 ActiveAdmin.register Page do
+  csv_importable :columns => [:title, :body],
+                              :import_unique_key => :title
 
   action_item only: :index do
     link_to 'Clear Cache', clear_cache_admin_pages_path, method: :post, remote: true, class: 'clear_cache', data: {confirm: 'Are you sure to clear the cache?'}

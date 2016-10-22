@@ -48,7 +48,9 @@ gem 'devise', '~> 3.2'
 gem 'activeadmin', '~> 1.0.0.pre1'
 gem 'ancestry'
 gem 'active_admin-sortable_tree'
-
+gem 'active_admin_importable'
+# Good gem for csv import with ajax
+gem 'active_admin_csv_import'
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

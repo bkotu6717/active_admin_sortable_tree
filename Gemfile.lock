@@ -24,6 +24,9 @@ GEM
       activeadmin (>= 0.6)
       jquery-ui-rails (~> 5.0)
       rails (>= 3.2)
+    active_admin_csv_import (2.0.0)
+      rails (>= 4.0)
+    active_admin_importable (1.1.2)
     activeadmin (1.0.0.pre1)
       arbre (~> 1.0, >= 1.0.2)
       bourbon
@@ -217,6 +220,8 @@ PLATFORMS
 
 DEPENDENCIES
   active_admin-sortable_tree
+  active_admin_csv_import
+  active_admin_importable
   activeadmin (~> 1.0.0.pre1)
   ancestry
   byebug
