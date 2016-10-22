@@ -3,7 +3,7 @@ ActiveAdmin.register Page do
                               :import_unique_key => :title
 
   action_item only: :index do
-    link_to 'Clear Cache', clear_cache_admin_pages_path, method: :post, remote: true, class: 'clear_cache', data: {confirm: 'Are you sure to clear the cache?'}
+    link_to 'Clear Cache', clear_cache_admin_cache_bustings_path, method: :post, remote: true, class: 'clear_cache', data: {confirm: 'Are you sure to clear the cache?'}
   end
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -37,9 +37,7 @@ ActiveAdmin.register Page do
   end
   sidebar :versionate, :partial => "layouts/version", :only => :show
 
-  
-  collection_action :clear_cache, method: :post do
-  end
+
 
   member_action :history do
     @page = Page.find(params[:id])
@@ -49,18 +47,6 @@ ActiveAdmin.register Page do
 
   controller do
     before_filter :authenticate_admin_user!
-    def clear_cache
-      begin
-        @response = ''
-        @response = 'Bad this is !!'
-        raise "Exeception!!"
-      rescue Exception => e
-        @response = e.message
-      end
-      respond_to do |format|
-        format.js
-      end
-    end
     def show
       @page = Page.includes(versions: :item).find(params[:id])
       @versions = @page.versions 

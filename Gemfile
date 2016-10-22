@@ -44,6 +44,7 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
 end
+gem 'httparty'
 gem 'devise', '~> 3.2'
 gem 'activeadmin', '~> 1.0.0.pre1'
 gem 'ancestry'
